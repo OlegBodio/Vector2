@@ -12,22 +12,20 @@ public:
 	Vector2& operator=(const Vector2& other);
 
 	Vector2 getNormalized() const;//+
-
 	float scalar(const Vector2& other);//+
 	float length()const;//+
 	float angle(const Vector2& other);//+
-
 	
 	Vector2 operator+(const Vector2& other) const;//+
-	Vector2 operator-(const Vector2& other)const;//+
-	Vector2 operator*(const float& num)const;//+
+	Vector2 operator-(const Vector2& other) const;//+
+	Vector2 operator*(const float& num) const;//+
 	
-	bool operator<(const Vector2& other)const;//+
-	bool operator>(const Vector2& other)const;//+
-	bool operator<=(const Vector2& other)const;//+
-	bool operator>=(const Vector2& other)const;//+
-	bool operator==(const Vector2& other)const;
-	bool operator!=(const Vector2& other)const;
+	bool operator<(const Vector2& other) const;//+
+	bool operator>(const Vector2& other) const;//+
+	bool operator<=(const Vector2& other) const;//+
+	bool operator>=(const Vector2& other) const;//+
+	bool operator==(const Vector2& other) const;//+
+	bool operator!=(const Vector2& other) const;//+
 
 
 };
