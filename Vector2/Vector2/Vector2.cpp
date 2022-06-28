@@ -1,57 +1,89 @@
 #include "Vector2.hpp"
 
-vector2::vector2(float _x = 0, float _y = 0)
+Vector2::Vector2(float x = 0, float y = 0)
 {
-	x = _x;
-	y = _y;
+	m_x = x;
+	m_y = y;
 }
 
-vector2::vector2(const vector2& vec)
+Vector2::Vector2(const Vector2& vec)
 {
-	x = vec.x;
-	y = vec.y;
+	m_x = vec.m_x;
+	m_y = vec.m_y;
 }
 
-vector2::vector2(const vector2&& vec)
+Vector2& Vector2::operator=(const Vector2& other)
 {
-	x = vec.x;
-	y = vec.y;
+	m_x = other.m_x;
+	m_y = other.m_y;
+	return *this;
 }
 
-float vector2::len(const vector2& vec)
+float Vector2::length()const
 {
-	return sqrt(vec.x * vec.x + vec.y + vec.y);
+	return sqrt(m_x * m_x + m_y + m_y);
 }
 
-vector2 vector2::getNormalized()const
+Vector2 Vector2::getNormalized()const
 {
-	float length = len(*this);
-	return vector2(this->x / length, this->x / length);
+	float len = length();
+	return Vector2(m_x / len, m_y / len);
 }
 
-float vector2::scalar(const vector2& vec1, const vector2& vec2)
+float Vector2::scalar(const Vector2& other)
 {
-	return (vec1.x * vec2.x) + (vec1.y * vec2.y);
+	return (m_x * other.m_x) + (m_y * other.m_y);
 }
 
-float vector2::angle(const vector2& vec1, const vector2& vec2)
+float Vector2::angle(const Vector2& other)
 {
-	return acos(scalar(vec1, vec2));
+	return acos(scalar(other));
 }
 
-vector2 vector2::operator+(const vector2& other)const 
+Vector2 Vector2::operator+(const Vector2& other)const 
 {
-	return vector2(this->x + other.x, this->y + other.y);
+	return Vector2(m_x + other.m_x, m_y + other.m_y);
 }
 
-vector2 vector2::operator-(const vector2& other)const
+Vector2 Vector2::operator-(const Vector2& other)const
 {
-	return vector2(this->x - other.x, this->y - other.y);
+	return Vector2(m_x - other.m_x, m_y - other.m_y);
 }
 
-vector2 vector2::operator*(const float& num)const
+Vector2 Vector2::operator*(const float& num)const
 {
-	return vector2(x * num, y * num);
+	return Vector2(m_x * num, m_y * num);
 }
 
-+
+bool Vector2::operator<(const Vector2& other)const
+{
+	return m_x < other.m_x&& m_y < other.m_y;
+}
+
+bool Vector2::operator>(const Vector2& other)const
+{
+	return m_x > other.m_x&& m_y > other.m_y;
+}
+
+bool Vector2::operator<=(const Vector2& other)const
+{
+	return m_x <= other.m_x&& m_y <= other.m_y;
+}
+
+bool Vector2::operator>=(const Vector2& other)const
+{
+	return m_x >= other.m_x && m_y >= other.m_y;
+}
+
+bool Vector2::operator==(const Vector2& other)const
+{
+	return m_x == other.m_x && m_y == other.m_y;
+}
+
+bool Vector2::operator!=(const Vector2& other)const
+{
+	return m_x != other.m_x && m_y != other.m_y;
+}
+
+
+
