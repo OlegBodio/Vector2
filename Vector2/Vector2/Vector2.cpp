@@ -49,26 +49,6 @@ Vector2 Vector2::operator*(const float& num) const
 	return Vector2(m_x * num, m_y * num);
 }
 
-bool Vector2::operator<(const Vector2& other) const
-{
-	return m_x < other.m_x&& m_y < other.m_y;
-}
-
-bool Vector2::operator>(const Vector2& other) const
-{
-	return m_x > other.m_x&& m_y > other.m_y;
-}
-
-bool Vector2::operator<=(const Vector2& other) const
-{
-	return m_x <= other.m_x&& m_y <= other.m_y;
-}
-
-bool Vector2::operator>=(const Vector2& other) const
-{
-	return m_x >= other.m_x && m_y >= other.m_y;
-}
-
 bool Vector2::operator==(const Vector2& other) const
 {
 	return m_x == other.m_x && m_y == other.m_y;
